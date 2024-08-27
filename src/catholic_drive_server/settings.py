@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "account",
+    "drive",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "catholic_drive_server.middleware.CORSMiddleware",
 ]
 
 ROOT_URLCONF = 'catholic_drive_server.urls'
@@ -76,8 +79,11 @@ WSGI_APPLICATION = 'catholic_drive_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'catholic_drive',
+        'USER': 'liveadmin',
+        'PASSWORD': 'Estsoft00!',
+        'HOST': 'test-pgsql-speechpoc.postgres.database.azure.com',
     }
 }
 
